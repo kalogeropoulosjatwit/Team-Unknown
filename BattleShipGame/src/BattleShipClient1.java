@@ -79,7 +79,7 @@ public class BattleShipClient1
             occupied[ 0 ] = dSpot1 ;
             occupied[ 1 ] = dSpot2 ;
             }
-        System.out.println( "Enter Location for destroyer (3 spots) Column: a-j, Row: 0-9 (Ex:b7b8b9)" ) ;
+        System.out.println( "Enter Location for submarine (3 spots) Column: a-j, Row: 0-9 (Ex:b7b8b9)" ) ;
         submarine = s.next() ;
         if ( submarine.length() == 6 )
             {
@@ -90,7 +90,7 @@ public class BattleShipClient1
             occupied[ 3 ] = sSpot2 ;
             occupied[ 4 ] = sSpot3 ;
             }
-        System.out.println( "Enter Location for destroyer (4 spots) Column: a-j, Row: 0-9 (Ex:c6c7c8c9)" ) ;
+        System.out.println( "Enter Location for battle ship (4 spots) Column: a-j, Row: 0-9 (Ex:c6c7c8c9)" ) ;
         battleShip = s.next() ;
         if ( battleShip.length() == 8 )
             {
@@ -103,7 +103,7 @@ public class BattleShipClient1
             occupied[ 7 ] = bSpot3 ;
             occupied[ 8 ] = bSpot4 ;
             }
-        System.out.println( "Enter Location for destroyer (5 spots) Column: a-j, Row: 0-9 (Ex:d5d6d7d8d9)" ) ;
+        System.out.println( "Enter Location for aircraft carrier (5 spots) Column: a-j, Row: 0-9 (Ex:d5d6d7d8d9)" ) ;
         aircraftCarrier = s.next() ;
         if ( aircraftCarrier.length() == 10 )
             {
