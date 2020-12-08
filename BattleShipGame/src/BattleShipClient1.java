@@ -39,25 +39,29 @@ public class BattleShipClient1
         
         
                    
-        System.out.println("BattleShip Game! Please type ready when you are ready to play");
+        System.out.println("BattleShip Game! Please type ready when you are ready to play. Type end to disconnect");
         String ready = inputFromUser.readLine();
         if (ready == "ready") {
-            displayBoard();
             String[] occupied = getLocations();
+            attack(occupied);    
+            if(attack(occupied) == true) {
+            System.out.println("Hit");
             attack(occupied);
+            }
+            else {
+            System.out.println("miss");
+            outStream.print("miss");
+            attack(occupied);
+            }
         }
+        if(inputFromUser.readLine().toLowerCase() == "end") {
+        System.exit(0);
+        }
+        
         }
         
    
-        /**
-     * 
-     *
-     */
-        private static void displayBoard()
-        {
-        //Opens Gui
         
-        }
 
 
 
@@ -133,9 +137,16 @@ public class BattleShipClient1
         String attack = ss.next();
         if(attack.length() == 2) {
         valid = true;
-            if((valid && Arrays.asList(occupied).contains(attack) )) {
-            hit = true;
+        if((valid && Arrays.asList(occupied).contains(attack) )) {
+        hit = true;
+        for(int i = 0; i >= 13; i++) {
+            if(i == 13) {
+            System.out.println("You win");
+            System.exit( 0 );
             }
+        }
+        
+        }
             else {
             hit = false;
             }
