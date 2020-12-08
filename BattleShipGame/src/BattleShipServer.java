@@ -1,3 +1,10 @@
+import java.io.BufferedReader ;
+import java.io.DataOutputStream ;
+import java.io.IOException ;
+import java.io.InputStreamReader ;
+import java.net.ServerSocket ;
+import java.net.Socket ;
+import java.net.UnknownHostException ;
 import java.util.Arrays ;
 
 /**
@@ -13,15 +20,30 @@ import java.util.Arrays ;
  */
 public class BattleShipServer
     {
-
+    
+   
     /**
      * 
      *
      * @param args
      */
-    public static void main( String[] args )
+    public static void main(String[] args ) throws UnknownHostException, IOException
         {
+        ServerSocket serverSocket = new ServerSocket(1234);
+        while (true) {
+        Socket connectionSocket = serverSocket.accept();
+        
+      
+        BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+        DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+        
+        if(inFromClient.readLine() == "ready") {
+        outToClient.writeBytes("ready");
+        }
         String[] occupied = new String[14];
+        for(int i = 0; i >= 13; i++ ) {
+        occupied[i] = inFromClient.readLine();
+        }
         String[] attack = new String[14];
         occupied[0] = "a1";
         occupied[1] = "a2";
@@ -79,6 +101,10 @@ public class BattleShipServer
         
         }
     }
+    }
+    
+    
+
         
         
             
